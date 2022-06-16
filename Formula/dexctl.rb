@@ -5,43 +5,43 @@
 class Dexctl < Formula
   desc "A command line tool for Dex IdP gRPC interface"
   homepage "https://github.com/rudeigerc/dexctl"
-  version "0.0.1-alpha.1"
+  version "0.0.1-alpha.2"
   license "Apache-2.0"
 
   on_macos do
-    if Hardware::CPU.intel?
-      url "https://github.com/rudeigerc/dexctl/releases/download/v0.0.1-alpha.1/dexctl_Darwin_x86_64"
-      sha256 "42e8618dbf97abe096aec1e0e4d30e618e3dc6c8e1b378a68a54375403ceb5f7"
-
-      def install
-        bin.install "dexctl_Darwin_x86_64" => "dexctl"
-      end
-    end
     if Hardware::CPU.arm?
-      url "https://github.com/rudeigerc/dexctl/releases/download/v0.0.1-alpha.1/dexctl_Darwin_arm64"
-      sha256 "4080d33ef5551a3c68cd5c8db7785c26ea5aad51cbd8ea674cc7a09a687bd08b"
+      url "https://github.com/rudeigerc/dexctl/releases/download/v0.0.1-alpha.2/dexctl_Darwin_arm64"
+      sha256 "2cddc65db126f5195e03731498b11645fe79b1400bea74b4a653c7a75e94455e"
 
       def install
         bin.install "dexctl_Darwin_arm64" => "dexctl"
       end
     end
+    if Hardware::CPU.intel?
+      url "https://github.com/rudeigerc/dexctl/releases/download/v0.0.1-alpha.2/dexctl_Darwin_x86_64"
+      sha256 "e45a5e0f82e0e50857f347a5a2f4f862ed2a0dd278657677da1277414a4e93f4"
+
+      def install
+        bin.install "dexctl_Darwin_x86_64" => "dexctl"
+      end
+    end
   end
 
   on_linux do
-    if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
-      url "https://github.com/rudeigerc/dexctl/releases/download/v0.0.1-alpha.1/dexctl_Linux_arm64"
-      sha256 "13346f7c42247b89c79bebb84260be2eb6f6f9746ff4bf7285c8c23254aee8da"
-
-      def install
-        bin.install "dexctl_Linux_arm64" => "dexctl"
-      end
-    end
     if Hardware::CPU.intel?
-      url "https://github.com/rudeigerc/dexctl/releases/download/v0.0.1-alpha.1/dexctl_Linux_x86_64"
-      sha256 "2b597808007058a3b0f1c08852834a74b82c7d6f61f62504f7a379ca09b45f93"
+      url "https://github.com/rudeigerc/dexctl/releases/download/v0.0.1-alpha.2/dexctl_Linux_x86_64"
+      sha256 "72b1f66224527fe08d501f9bc12f579dab126beae75898adc6dd5762fdf3b204"
 
       def install
         bin.install "dexctl_Linux_x86_64" => "dexctl"
+      end
+    end
+    if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
+      url "https://github.com/rudeigerc/dexctl/releases/download/v0.0.1-alpha.2/dexctl_Linux_arm64"
+      sha256 "770b6064df128090e749943c877197bcf0560903e2ce8b89797ae5dacf7abe89"
+
+      def install
+        bin.install "dexctl_Linux_arm64" => "dexctl"
       end
     end
   end
